@@ -1,0 +1,85 @@
+============================================================
+ATIVIDADE EBAC - CALCULADORA EM SHELL SCRIPT (LINUX)
+COMANDOS UTILIZADOS
+Aluno: Gabriel dos Reis Silva
+============================================================
+
+
+------------------------------------------------------------
+CONTEXTO (ITENS 1 e 2) - CRIACAO DO ARQUIVO
+------------------------------------------------------------
+# Entrar na pasta de trabalho
+cd ~
+
+# Abrir o editor de texto e ja criar o arquivo com extensao .sh
+nano calculadora.sh
+
+# (Dentro do nano: digitar o codigo, salvar com CTRL + O, ENTER,
+#  e sair com CTRL + X)
+
+# Conferir que o arquivo foi criado
+ls -l calculadora.sh
+
+Saida:
+-rw-r--r-- 1 gabriel gabriel 2932 set 11 12:00 calculadora.sh
+(por padrao o arquivo nasce SEM permissao de execucao)
+
+
+------------------------------------------------------------
+ITEM 3 - TORNAR O ARQUIVO EXECUTAVEL
+------------------------------------------------------------
+chmod +x calculadora.sh
+
+# Conferindo o resultado
+ls -l calculadora.sh
+
+Saida:
+-rwxr-xr-x 1 gabriel gabriel 2932 set 11 12:05 calculadora.sh
+
+Explicacao:
+O "+x" adiciona a permissao de EXECUCAO (x) ao arquivo.
+
+
+------------------------------------------------------------
+ITEM 4 - DEFINIR AS PERMISSOES
+(apenas o proprietario com escrita / os outros com leitura)
+------------------------------------------------------------
+chmod 744 calculadora.sh
+
+# Conferindo o resultado
+ls -l calculadora.sh
+
+Saida:
+-rwxr--r-- 1 gabriel gabriel 2932 set 11 12:08 calculadora.sh
+
+Explicacao do numero 744:
+  7 = PROPRIETARIO -> leitura (4) + escrita (2) + execucao (1) = 7
+  4 = GRUPO        -> somente leitura (4)
+  4 = OUTROS       -> somente leitura (4)
+
+Ou seja: so o dono pode escrever/alterar o arquivo,
+e os demais usuarios podem apenas ler.
+
+Forma alternativa (modo simbolico, mesmo resultado):
+chmod u=rwx,g=r,o=r calculadora.sh
+
+
+------------------------------------------------------------
+ITEM 5 - EXECUTAR O SCRIPT
+------------------------------------------------------------
+./calculadora.sh
+
+Forma alternativa (caso a permissao de execucao nao esteja ativa):
+bash calculadora.sh
+
+
+------------------------------------------------------------
+RESUMO - SEQUENCIA COMPLETA DE COMANDOS
+------------------------------------------------------------
+nano calculadora.sh
+ls -l calculadora.sh
+chmod +x calculadora.sh
+ls -l calculadora.sh
+chmod 744 calculadora.sh
+ls -l calculadora.sh
+./calculadora.sh
